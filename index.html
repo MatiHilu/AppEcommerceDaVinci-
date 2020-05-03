@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ryu-Gun App</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <script>document.createElement("picture");</script>
+</head>
+
+<body>
+    <header class="container-fluid sticky-top">
+          <div class="row">
+            <nav class="navbar  navbar-dark col-auto mr-auto">
+            <div class=" navbar ">
+                <button class="navbar-toggler border-0" 
+                        type="button" 
+                        data-toggle="collapse" 
+                        data-target="#barra" 
+                        aria-controls="barra" 
+                        aria-expanded="false" 
+                        aria-label="Menú Hamburguesa">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="barra">
+                    <ul class="navbar-nav ">
+                        <li class="nav-item navbar-toggler">
+                        <img class="col-auto" src="img/menuH/back.png" alt=""></li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link"  href="#">
+                            <img src="img/menuH/home.png" alt="">
+                            HOME</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link"  href="#">
+                            <img src="img/menuH/anime.png" alt="">
+                            ANIMÉ</a>
+                        </li>
+                        
+                        <li 
+                           class="nav-item">
+                            <a class="nav-link"  href="#">
+                            <img src="img/menuH/pelis.png" alt="">
+                            PELÍCULAS</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link"  href="#">
+                            <img src="img/menuH/tv.png" alt="">
+                            TV/SERIES</a>
+                        </li>
+                        <li><div></div></li>
+                        <li class="nav-item">
+                            <a class="nav-link"  href="#">
+                            <img src="img/i-carrito.png" alt="">
+                            MI CARRITO</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link"  href="#">
+                            <img src="img/menuH/info.png" alt="">
+                            INFO</a>
+                        </li>
+                        
+                    </ul>
+                    <ul class="container">
+                       
+                        <li class="col-auto mx-auto" ><a href="#"><img src="img/menuH/face.png" alt=""></a></li>
+                        <li class="col-auto mx-auto"><a href="#"><img src="img/menuH/insta.png" alt=""></a></li>
+                        <li class="col-auto mx-auto"><a href="#"><img src="img/menuH/twit.png" alt=""></a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+    </nav>
+       
+             <h1 class="mx-auto">Ryu-Gun</h1>
+                <figure class="col-auto mr-auto">
+                    <img src="img/i-carrito.png" alt="Icono de carrito de compras">
+                    <div><span>0</span></div>
+                    <figcaption><span>$</span> <span>0</span></figcaption>
+                </figure>
+            </div>
+    </header>
+    
+    
+    <section>
+        <h2>Aquí se genera el JS</h2>
+    </section>
+    
+    
+    
+    
+    <footer>
+            <nav class="container-fluid">
+                <ul class="row">
+                    <li class="col-auto mx-auto"><a href="#"><img src="img/nav/homeTarget.png" alt=""></a></li>
+                    <li class="col-auto mx-auto"><a href="#"><img src="img/nav/anime_1.png" alt=""></a></li>
+                    <li class="col-auto mx-auto"><a href="#"><img src="img/nav/cine.png" alt=""></a></li>
+                    <li class="col-auto mx-auto"><a href="#"><img src="img/nav/tv_1.png" alt=""></a></li>
+                </ul>
+            </nav>
+    </footer>
+    <script src="js/jquery-3.4.1.js"></script>
+    <script src="js/bootstrap.bundle.js"></script>
+    <script src="js/picturefill.js"></script>
+    <script>
+        $('.nav-item').on('click', function() {
+            $(".navbar-collapse").collapse("hide");
+        });
+    </script>
+    <script src="final.js"></script>
+    
+</body>
+</html>

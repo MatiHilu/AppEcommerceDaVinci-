@@ -1,0 +1,258 @@
+/*css*/
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto';
+}
+
+body{
+    
+    
+    margin: auto;
+}
+
+section{
+    max-width: 800px;
+    margin: auto;
+}
+.navbar-collapse {
+        position: absolute;
+        top: 67px;
+        left: -2px;
+        
+        width: 70vw;
+    }
+
+header{
+    background-color: #009966;
+}
+
+h1{
+    font-size: 0px;
+    background: url(../img/logo.png)no-repeat no-repeat;
+    height: 27px;
+    width: 162px;
+    display: inline-block;
+    padding: 1rem 0.1rem;
+    margin-top: 1rem;
+}
+
+header figure img{
+    
+    display: inline-block;
+    margin-top: 1rem;
+    width: 2em;
+}
+
+header nav{
+    display: inline-block;
+    position: fixed;
+    z-index: 2000;
+    
+}
+
+header nav ul{
+    z-index: 5000;
+    left: -1000px;
+    background-color: black;
+    
+    
+}
+
+header ul li{
+    list-style: none;
+   
+}
+
+header ul:last-of-type {
+    background-color: gray;
+    padding: 1em;
+    height: 3.5em;
+    
+}
+
+header ul:first-of-type{
+    height: 73.4vh;
+    width: 100vw;
+    max-width: 100vw;
+}
+
+header ul:last-of-type li a img{
+    height: 2em;
+}
+
+header nav ul:first-of-type  img{
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}
+
+header nav ul:first-of-type li:first-of-type img:first-of-type{
+    margin-left: 75%;
+}
+
+header nav ul:first-of-type li:nth-of-type(6){
+    border-bottom: 1px solid white;
+    width: 90%;
+    margin: auto;
+    
+}
+
+header nav ul:first-of-type li:last-of-type{
+    margin-bottom: 0.8em;
+}
+
+header nav ul:last-of-type{
+    display: flex;
+    width: 100vw;
+    height: 14vh;
+    max-width: 100vw;
+}
+
+header figure figcaption{
+    color: white;
+    margin-bottom: -12px;
+}
+
+header figure figcaption span{
+    color: white;
+}
+
+header figure div{
+    margin-top: -46px;
+    margin-bottom: 22px;
+    margin-left: 6px;
+    color: white;
+    background-color: black;
+    border-radius: 20px;
+    text-align: center;
+    width: 25px;
+}
+
+
+footer{
+    background-color: #009966;
+    padding-top: 0.5em;
+    position: sticky;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    
+}
+
+footer li{
+    display: inline-block;
+    list-style-type: none;
+    margin-bottom: 0.5em;
+}
+
+
+section > h2{
+    font-size: 0;
+}
+/*a partir de aca pongo los estilos que seran de las etiquetas de JS*/
+section > div{
+    padding: 0.2em;
+    border: 1px solid black;
+    background-color: gainsboro;
+    
+}
+
+div p{
+    margin-top: 1.5em;
+    font-size: 1.2em
+}
+
+section div figure{
+    display: inline-block;
+}
+
+section div img{
+    width: 40%;
+    
+}
+
+
+
+.modal {
+	position: fixed;
+	z-index: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+    top: 1em;
+    
+    bottom: 1em;
+    
+	background-color: rgba(0,0,0,.9);
+}
+
+.modalBanner{
+    position: fixed;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 1em;
+    width: 100vw;
+    left: 0;
+    right: 0;
+    bottom: 1em;
+    background-color: rgba(255,255,255,.7);
+}
+
+.modalBanner > div{
+    background-color: black;
+    color: white;
+    padding: 1em;
+    width: 100%;
+    max-width: 60vw;
+    margin: 0;
+    max-width: 90vw;
+    margin: 0;
+    border-radius: 15px;
+    margin-top: 4em;
+    margin-bottom: 4em;
+    overflow-y: scroll;
+    
+}
+
+.inputForm{
+    width: 90%;
+    margin: auto;
+    font-size: 1.1em;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-top: 0.4em;
+    margin-bottom: 0.4em;
+    height: 2em;
+}
+
+.sinFondo{
+    background-color: none;
+    border: none;
+}
+
+.cajasCarr{
+    background-color: gainsboro;
+    padding: 0.2em;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+@media screen and (min-width: 400px){
+    img{
+        max-width: 360px;
+    }
+}
+
+@media screen and (min-width: 680px){
+    nav ul:first-of-type li a{
+        font-size: 2.5em;
+    }
+}

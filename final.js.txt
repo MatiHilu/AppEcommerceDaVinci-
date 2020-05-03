@@ -1,0 +1,2171 @@
+/***
+	HILÚ, MATÍAS
+***/
+var _c = console.log;
+
+var d = document;
+var aInfo = [
+    'Carrera: Diseño y desarrollo web',
+    'Materia: Interacción con Dispositivos Móviles',
+    'Comisión: A',
+    'Turno: mañana',
+    'Año: 2019',
+    'Cuatrimestre: 2',
+    'Docente: Omar Toyos',
+    'Carácter de entrega: final',
+    'Apellido y nombre del alumno: Hilú Matías',
+
+]
+var aOfertas = [
+    {
+         nombre: '3 sables de Star wars',
+         precio: 4000,
+         texto: 'Darth Vader, Luke Skywalker y Obi-Wan Kenobi.',
+         img: 'img/home/oferta_1.png',
+         alt: 'Oferta de 3 sables de Star wars',
+         id: 101,
+     },
+     {
+         nombre: '3 katanas de zoro',
+         precio: 5500,
+         texto: 'Obtené las 3 katanas de zoro por un tiempo limitado',
+         img: 'img/home/oferta_2.png',
+         alt: 'Oferta de 3 Katanas de zoro',
+         id: 102,
+     },
+     {
+         nombre: 'Todas las armas de las Tortugas Ninja',
+         precio: 4500,
+         texto: 'Nunchakus, el bastón "bo", los puñales "sai" y las katanas',
+         img: 'img/home/oferta_3.png',
+         alt: 'Oferta de Tortugas Ninja',
+         id: 103,
+     },
+ 
+ ]
+var aCalecita = [
+    {
+        nombre:'Escudo de Cápitan América',
+        precio: 6000,
+        texto:'Escudo de Cápitan América utilizado por Steve Rogers en el MCU.',
+        img:'img/cine/america.png',
+        alt: 'Escudo de Cápitan América utilizado por Steve Rogers en el MCU',
+        id: 7,
+    },
+    {
+        nombre:'Katana Sasuke',
+        precio: 3000,
+        texto:'Katana de Sasuke, utilizada durante Naruto Shippuden. Acero 440. Hoja pulida. Color: Blanco laqueado con negro. Estilo: Shirasaya. Filo: Láser. Medidas: Largo total: 103 cm.* Largo de filo: 70 cm.* Largo de Tsuka (mango): 28 cm* Espesor de hoja: 4 mm* Peso: 900 gr.*',
+        img:'img/anime/sasuke.png',
+        alt: 'Katana de Sasuke, utilizada durante Naruto Shippuden',
+        id: 4,
+    },
+    {
+        nombre:'Mjolnir, martillo de Thor',
+        precio: 4600,
+        texto:'Martillo del dios del trueno Thor utilizado en las pelíclas de Marvel.',
+        img:'img/cine/thor.png',
+        alt: 'Martillo del dios del trueno Thor utilizado en las pelíclas de Marvel',
+        id: 8,
+    },
+]
+var aCarrito = [];
+var aProductos = {
+    anime : [
+
+    {
+        nombre:'Espada Kirito SAO',
+        precio: 1200,
+        texto:'Espada utilizada por Kirito (Kirigaia Kazuto). Serie: Sword Art Online (SAO) temporada 1. Acero al carbono 1045 Apliques en metal. Saya / vaina de madera. Tsuba / defensa en metal. Doble Filo. MEDIDAS Largo total: 114 cm.* Largo de filo: 84 cm.* Largo de Tsuka (mango): 24 cm* Espesor de hoja: 4 mm* Peso: 1200 gr.* *Medidas aproximadas.*',
+        img: 'img/anime/sao.png',
+        alt: 'Espada utilizada por Kirito (Kirigaia Kazuto) en Sword Art Online',
+        id: 1,
+    },
+    {
+        nombre:'Axe Rita Escanor',
+        precio: 2200,
+        texto:'El Hacha Divina Rhitta de Escanor, de la conocida seria de manga y anime Nanatsu No Taizai, o los Siete Pecados Capitales como se lo conoce en Latinoamerica. Esta realizada enteramente en Madera, con acabados y detalles en distintos materiales como goma eva, resina, masilla epoxy. Ideal para cosplay. Tiene solo filo de vista, no es punzo cortante bajo ninguna cirscuntancia. Medidas: Largo: 1,40 M. Ancho: 70 cm. Filo del hacha: 51 cm. Peso: 5 Kg.',
+        img:'img/anime/rita.png',
+        alt: 'Hacha utilizada por Escanor',
+        id: 2,
+    },
+    {
+        nombre:'Equipo de SNK',
+        precio: 1100,
+        texto:'Equipo de maniobras tridimencionales de Shingeki No Kyojin con la cual dañan a los titanes. La parte trasera del equipo encargada de las maniobras se encuentra en la espalda en vez de en la cintura. Los usuarios llevan en ambas manos una pistola con dos cañones, uno en la parte inferior (utilizado para disparar el gancho) y otro en la parte superior (este actúa como un cañón de aire comprimido de gran potencia, la suficiente como para matar a una persona con un disparo en la cabeza). Los usuarios llevan un cinturón con pequeños tanques de aire comprimido en vez de las cuchillas de acero. La capacidad de maniobrar no se ve afectada teniendo en cuenta que el esfuerzo se sobrecarga hacia los brazos y no a la cintura como lo es en el equipo tridimensional común.',
+        img:'img/anime/snk.png',
+        alt: 'Equipo de maniobras tridimencionales de Shingeki No Kyojin',
+        id: 3,
+    },
+    {
+        nombre:'Katana Sasuke',
+        precio: 3000,
+        texto:'Katana de Sasuke, utilizada durante Naruto Shippuden. Acero 440. Hoja pulida. Color: Blanco laqueado con negro. Estilo: Shirasaya. Filo: Láser. Medidas: Largo total: 103 cm.* Largo de filo: 70 cm.* Largo de Tsuka (mango): 28 cm* Espesor de hoja: 4 mm* Peso: 900 gr.*',
+        img:'img/anime/sasuke.png',
+        alt: 'Katana de Sasuke, utilizada durante Naruto Shippuden',
+        id: 4,
+    },
+    
+   
+],
+
+    cine : [
+
+    {
+        nombre:'Sable de luz Kylo',
+        precio: 1200,
+        texto:'Sable de luz de Kylo-Ren utilizado para la última triología de Star Wars.',
+        img:'img/cine/sableRojo.png',
+        alt: 'Sable de luz de Kylo-Ren utilizado para la última triología de Star Wars',
+        id: 5,
+    },
+   
+    {
+        nombre:'America Shield',
+        precio: 6000,
+        texto:'Escudo de Cápitan América utilizado por Steve Rogers en el MCU.',
+        img:'img/cine/america.png',
+        alt: 'Escudo de Cápitan América utilizado por Steve Rogers en el MCU',
+        id: 7,
+    },
+    {
+        nombre:'Mjolnir',
+        precio: 4600,
+        texto:'Martillo del dios del trueno Thor utilizado en las pelíclas de Marvel.',
+        img:'img/cine/thor.png',
+        alt: 'Martillo del dios del trueno Thor utilizado en las pelíclas de Marvel',
+        id: 8,
+    },
+    
+],
+
+    tv : [
+
+    {
+        nombre:'Long Claw',
+        precio: 3500,
+        texto:'Espada Long Claw de Jhon Snow del show Game Of Thrones.',
+        img:'img/tv/clawGOT.jpg',
+        alt: 'Espada Long Claw de Jhon Snow del show Game Of Thrones',
+        id: 9,
+    },
+    {
+        nombre:'Needle (aguja)',
+        precio: 2500,
+        texto:'Espada Needle de Arya Stark del show Game Of Thrones.',
+        img:'img/tv/nedleeGOT.jpg',
+        alt: 'Espada Needle de Arya Stark del show Game Of Thrones',
+        id: 10,
+    },
+ 
+    {
+        nombre:'Magnum',
+        precio: 1800,
+        texto:'Pistla Magnum utilizada por Rick Grimes a lo largo del show The Walking Dead (no dispara).',
+        img:'img/tv/rickGun.jpg',
+        alt: 'Pistla Magnum utilizada por Rick Grimes a lo largo del show The Walking Dead',
+        id: 12,
+    }
+    
+
+]
+}//Terminan los productos
+
+var spanBlanco = d.querySelector('header').lastElementChild.lastElementChild.lastElementChild.lastElementChild;
+var h1 = d.querySelector('h1');
+
+var carr = d.getElementsByClassName('carousel-inner');
+var spanNegro = d.querySelector('header').lastElementChild.lastElementChild.querySelector('div').firstChild;
+var nav = d.querySelector('nav').firstElementChild.lastElementChild.firstElementChild.children;
+var footerNav = d.querySelector('footer').querySelector('nav').firstElementChild.children;
+var imghome = footerNav[0].firstElementChild.firstElementChild;
+var imganime = footerNav[1].firstElementChild.firstElementChild;
+var imgcine = footerNav[2].firstElementChild.firstElementChild;
+var imgtv = footerNav[3].firstElementChild.firstElementChild;
+var carrito = d.querySelector('header').firstElementChild.lastElementChild;
+var bandera = true;
+var banderaOff1 = true;
+var banderaOff2 = true;
+var banderaOff3 = true;
+
+var contadorDeProductos = 0;
+// variables para las funciones
+var divPrecio, article, back, backA, logoSeccion, figureLogoSeccion, cajaProducto, cajaInterna, img,
+ cajaInfo, line,divTitulo, titulo, precio, boton;
+var section = d.querySelector('section');
+section.removeChild(section.firstElementChild);
+Home();
+
+function CrearArticle(){
+    article = d.createElement('article');
+    article.setAttribute('class', 'container-fluid')
+    section.appendChild(article);
+}
+
+function Home(){
+    var logo, logoimg, mejores, divCar1, divCar2, carItem1,
+     carItem, aPrev, aNext, span1, span2, span3, span4,
+     caja1divInfo1, caja1Img, caja1, caja1p, precioDivcaja, caja1p2Simb,
+     caja1p2, caja1btn, caja2, caja1divInfo12, caja1Img2, caja1p2,
+     precioDivcaja2, caja1p2Simb2, caja1p22, caja1btn2,invita ;
+    CrearArticle();
+    banderaOff1 = true;
+    banderaOff2 = true;
+    banderaOff3 = true;
+
+    article.setAttribute('style', 'background-color: rgb(50, 50, 50); padding-top: 1em; padding-bottom: 1em;')
+    logo = d.createElement('div');
+    logo.setAttribute('style', 'margin: auto;');
+    logoimg = d.createElement('img');
+    logoimg.setAttribute('style', 'margin: auto; display: block;')
+    logoimg.src = 'img/logo1.png';
+    logoimg.alt = 'Logo de Ryu-Gun';
+
+    article.appendChild(logo);
+    logo.appendChild(logoimg);
+
+    mejores = d.createElement('p');
+    mejores.innerHTML = 'Nuestros mejores productos';
+    mejores.setAttribute('style', 'text-align: center; font-size: 2em; color: white;');
+    article.appendChild(mejores);
+
+    divCar1 = d.createElement('div');
+    divCar1.setAttribute('id', 'galeria');
+    divCar1.setAttribute('style', 'margin-bottom: 10vw;');
+    divCar1.setAttribute('class', 'carousel slide carousel-fade');
+    divCar1.setAttribute('data-ride', 'carousel');
+    article.appendChild(divCar1);
+
+    divCar2 = d.createElement('div');
+    divCar2.setAttribute('class', 'carousel-inner');
+    divCar1.appendChild(divCar2);
+//----------------------------------------------------------------
+    carItem1 = d.createElement('div');
+    carItem1.setAttribute('class', 'carousel-item active');
+    caja1 = d.createElement('div');
+    caja1.setAttribute('class', 'cajasCarr');
+    caja1.setAttribute('id', aProductos['anime'][0].id);
+    carItem1.appendChild(caja1);
+
+    caja1divInfo1 = d.createElement('div');
+    caja1divInfo1.setAttribute('style', 'display: block; margin: auto');
+    caja1Img = d.createElement('img');
+    caja1Img.setAttribute('style', 'display: block; margin: auto;');
+    caja1Img.src = aProductos['anime'][0].img;
+    caja1Img.alt = aProductos['anime'][0].alt;
+
+    caja1.appendChild(caja1Img);
+    caja1.appendChild(caja1divInfo1);
+    divCar2.appendChild(carItem1);
+
+    caja1p = d.createElement('p');
+    caja1p.innerHTML = aProductos['anime'][0].nombre;
+    caja1p.setAttribute('style', 'margin: 0; text-align: center;')
+    
+    
+
+    precioDivcaja = d.createElement('div');
+    precioDivcaja.setAttribute('style', 'display: block; text-align: center; margin: auto; margin-bottom: 1.5em; margin-top: 1em;');
+    caja1p2Simb = d.createElement('p');
+    caja1p2Simb.setAttribute('style', 'display: inline-block; margin: auto;');
+    caja1p2Simb.innerHTML = '$';
+    caja1p2 = d.createElement('p');
+    caja1p2.setAttribute('style', 'display: inline-block; margin: auto;');
+    caja1p2.innerHTML= aProductos['anime'][0].precio;
+    precioDivcaja.appendChild(caja1p2Simb);
+    precioDivcaja.appendChild(caja1p2);
+
+    caja1btn = d.createElement('img');
+    caja1btn.src = 'img/modal/meterCarrito.png';
+    caja1btn.setAttribute('style', 'width: 90%; display: block; margin: auto;');
+    caja1btn.onclick = CargarMejores;
+
+    caja1divInfo1.appendChild(caja1p);
+    caja1divInfo1.appendChild(precioDivcaja);
+    caja1divInfo1.appendChild(caja1btn);
+
+
+
+
+
+for(var i = 0; i < aCalecita.length; i++){
+    carItem = d.createElement('div');
+    carItem.setAttribute('class', 'carousel-item');
+    caja2 = d.createElement('div');
+    caja2.setAttribute('class', 'cajasCarr');
+    caja2.setAttribute('id', aCalecita[i].id);
+    carItem.appendChild(caja2);
+
+    caja1divInfo12 = d.createElement('div');
+    caja1divInfo12.setAttribute('style', 'display: block; margin: auto');
+    caja1Img2 = d.createElement('img');
+    caja1Img2.setAttribute('style', 'display: block; margin: auto;');
+    caja1Img2.src = aCalecita[i].img;
+    caja1Img2.alt = aCalecita[i].alt;
+
+    caja2.appendChild(caja1Img2);
+    caja2.appendChild(caja1divInfo12);
+    divCar2.appendChild(carItem);
+
+    caja1p2 = d.createElement('p');
+    caja1p2.innerHTML = aCalecita[i].nombre;
+    caja1p2.setAttribute('style', 'margin: 0; text-align: center;')
+    
+    
+
+    precioDivcaja2 = d.createElement('div');
+    precioDivcaja2.setAttribute('style', 'display: block; text-align: center; margin: auto; margin-bottom: 1.5em; margin-top: 1em;');
+    caja1p2Simb2 = d.createElement('p');
+    caja1p2Simb2.setAttribute('style', 'display: inline-block; margin: auto;');
+    caja1p2Simb2.innerHTML = '$';
+    caja1p22 = d.createElement('p');
+    caja1p22.setAttribute('style', 'display: inline-block; margin: auto;');
+    caja1p22.innerHTML= aCalecita[i].precio;
+    precioDivcaja2.appendChild(caja1p2Simb2);
+    precioDivcaja2.appendChild(caja1p22);
+
+    caja1btn2 = d.createElement('img');
+    caja1btn2.src = 'img/modal/meterCarrito.png';
+    caja1btn2.setAttribute('style', 'width: 90%; display: block; margin: auto;');
+    caja1btn2.onclick = CargarMejores;
+
+    caja1divInfo12.appendChild(caja1p2);
+    caja1divInfo12.appendChild(precioDivcaja2);
+    caja1divInfo12.appendChild(caja1btn2);
+
+}
+
+
+
+   
+
+//----------------------------------------------------------------
+    aPrev = d.createElement('a');
+    aPrev.setAttribute('style', 'background-color: rgba(0, 0, 0, 0.1);');
+    aPrev.setAttribute('class', 'carousel-control-prev');
+    aPrev.setAttribute('href', '#galeria');
+    aPrev.setAttribute('role', 'button');
+    aPrev.setAttribute('data-slide', 'prev');
+    divCar1.appendChild(aPrev);
+
+    aNext = d.createElement('a');
+    aNext.setAttribute('style', 'background-color: rgba(0, 0, 0, 0.1);');
+    aNext.setAttribute('class', 'carousel-control-next');
+    aNext.setAttribute('href', '#galeria');
+    aNext.setAttribute('role', 'button');
+    aNext.setAttribute('data-slide', 'next');
+    divCar1.appendChild(aNext);
+
+    span1 = d.createElement('span');
+    span1.setAttribute('class', 'carousel-control-prev-icon');
+    span1.setAttribute('aria-hidden', 'true');
+    aPrev.appendChild(span1);
+    span2 = d.createElement('span');
+    span2.innerHTML = 'Anterior';
+    span2.setAttribute('class', 'sr-only');
+    aPrev.appendChild(span2);
+
+    span3 = d.createElement('span');
+    span3.setAttribute('class', 'carousel-control-next-icon');
+    span3.setAttribute('aria-hidden', 'true');
+    aNext.appendChild(span3);
+    span4 = d.createElement('span');
+    span4.innerHTML = 'Siguiente';
+    span4.setAttribute('class', 'sr-only');
+    aNext.appendChild(span4);
+
+    invita = d.createElement('p');
+    invita.innerHTML = 'Entrá a las diferentes categorías y mirá nuestros productos';
+    invita.setAttribute('style', 'text-align: center; font-size: 1.2em; color: white; margin: 0;');
+    article.appendChild(invita);
+
+}
+
+function Anime(){
+CrearArticle();
+banderaOff2 = true;
+banderaOff3 = true;
+
+if(banderaOff1 == true){
+
+var fondo, modalBanner, bm, bam, imgBanner;
+fondo = d.createElement('div');
+fondo.setAttribute('class', 'modalBanner');
+fondo.setAttribute('id', 'banner1');
+section.appendChild(fondo);
+
+    modalBanner = d.createElement('div');
+    modalBanner.setAttribute('class', 'container');
+    modalBanner.setAttribute('style', '');
+    fondo.appendChild(modalBanner);
+
+    bam = d.createElement('a');
+    bam.href = '#';
+  
+   
+    bam.setAttribute('style', 'display: block; margin-right: 1em;');
+    bam.setAttribute('class', 'ml-auto');
+    bam.addEventListener('click', function(){
+        this.parentNode.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode.parentNode);
+    });
+    
+       
+    bm = d.createElement('img');
+    bm.src = 'img/sacar.png';
+    bm.alt = 'Boton para volver a la sección en la que se encontraba';
+    bm.setAttribute('style', 'width: 2em; height: 2em; margin-left: 2em;');
+
+    divBam = d.createElement('div');
+    divBam.setAttribute('class', 'row');
+
+    bam.appendChild(bm);
+    divBam.appendChild(bam);
+    modalBanner.appendChild(divBam);
+    int = d.createElement('div');
+    int.setAttribute('class', 'row');
+    
+    modalBanner.appendChild(int);
+
+ 
+    int.setAttribute('id', aOfertas[1].id);
+
+    divModalImg = d.createElement('div');
+    divModalImg.setAttribute('class', 'col-12 col-sm-6');
+    
+    divModalInfo = d.createElement('div');
+    divModalInfo.setAttribute('class', 'col-12 col-sm-6');
+    divModalInfo.setAttribute('style', 'margin-top: 1em;');
+
+    int.appendChild(divModalImg);
+    int.appendChild(divModalInfo);
+
+    imgBanner = d.createElement('img');
+    imgBanner.setAttribute('style', 'width: 90%; display: block; margin: auto; ');
+    imgBanner.src = aOfertas[1].img;
+    imgBanner.alt = aOfertas[1].alt;
+   
+
+    titleBanner = d.createElement('p');
+    titleBanner.setAttribute('style', 'margin: auto; font-size: 1.3em;  text-align: center;');
+    titleBanner.innerHTML = aOfertas[1].nombre;
+    
+    divModalImg.appendChild(titleBanner);
+    divModalImg.appendChild(imgBanner);
+    
+
+    textBann = d.createElement('p');
+    textBann.setAttribute('class', '');
+    textBann.setAttribute('style', 'margin: auto;  text-align: center;');
+    textBann.innerHTML = aOfertas[1].texto;
+
+
+    precioDivBann = d.createElement('div');
+    precioDivBann.setAttribute('style', ' margin: auto; margin-bottom: 1.5em; margin-top: 1em;');
+    precioSimb = d.createElement('p');
+    precioSimb.setAttribute('style', 'display: inline-block; margin: auto;');
+    precioSimb.innerHTML = '$';
+    precioBann = d.createElement('p');
+    precioBann.setAttribute('style', 'display: inline-block; margin: auto;');
+    precioBann.innerHTML= aOfertas[1].precio;
+    precioDivBann.appendChild(precioSimb);
+    precioDivBann.appendChild(precioBann);
+
+
+    btnAgregar = d.createElement('img');
+    btnAgregar.src = 'img/modal/meterCarrito.png';
+    btnAgregar.setAttribute('style', 'width: 90%; display: block; margin:auto;');
+    btnAgregar.onclick = CargarOferta;
+
+    divModalInfo.appendChild(textBann);
+    divModalInfo.appendChild(precioDivBann);
+    divModalInfo.appendChild(btnAgregar);
+    
+
+
+
+    
+    var time = setInterval(
+        function () {
+
+            if(section.lastElementChild.id == fondo.id)
+            
+                section.removeChild(section.lastElementChild);
+            
+            clearInterval(time);
+        },
+        4000
+    );
+
+    banderaOff1 = false;
+    }
+
+
+
+    backA = d.createElement('a');
+    backA.href = '#';
+    
+    backA.addEventListener('click', VaciarSection);
+    backA.addEventListener('click', BotonHome);
+    backA.onclick = Home;
+    
+    back = d.createElement('img');
+    back.src = 'img/back.png';
+    back.alt = 'Boton para volver a la home';
+    back.setAttribute('style', 'margin: 1em;');
+    
+    figureLogoSeccion = d.createElement('figure');
+    figureLogoSeccion.setAttribute('class', 'row')
+    logoSeccion = d.createElement('img');
+    logoSeccion.src = 'img/anime/logoAnime.png';
+    logoSeccion.alt = 'Logo de seccion Anime';
+    logoSeccion.setAttribute('class' , 'mx-auto');
+    
+    
+    article.appendChild(backA);
+    article.appendChild(figureLogoSeccion);
+    backA.appendChild(back);
+    figureLogoSeccion.appendChild(logoSeccion);
+
+ 
+for (var i = 0; i < aProductos['anime'].length; i++){
+
+            cajaProducto = d.createElement('div');
+            cajaProducto.id = aProductos['anime'][i].id;
+            cajaProducto.setAttribute('class', 'row');
+            cajaProducto.setAttribute('style', 'padding: 0.2em; border: 2px solid black; background-color: gainsboro;')
+            article.appendChild(cajaProducto); 
+        
+            
+            cajaInterna = d.createElement('div');
+            cajaInterna.setAttribute('class', 'col-12 row');
+            cajaInterna.setAttribute('style', 'margin: 0; border: none;');
+            cajaProducto.appendChild(cajaInterna);
+            img = d.createElement('img');
+            img.src = aProductos['anime'][i].img;
+            img.alt = aProductos['anime'][i].alt;
+            img.setAttribute('class', '');
+            img.setAttribute('style', 'flex: 0 0 100%; max-width: 20em; margin: auto;');
+            cajaInterna.appendChild(img);
+
+            
+            cajaInfo = d.createElement('div');
+            cajaInfo.setAttribute('style', 'border: none; margin-top: 1em;')
+            cajaInfo.setAttribute('class', ' col-12 ml-auto');
+            cajaInterna.appendChild(cajaInfo);
+
+            
+            line = d.createElement('div');
+            line.setAttribute('class', 'row');
+            line.setAttribute('style', 'border: none;');
+            
+            cajaInfo.appendChild(line);
+
+
+            divTitulo = d.createElement('div');
+            titulo = d.createElement('p');
+            titulo.setAttribute('style', 'font-size: 1.3em; margin: 0;');
+            titulo.innerHTML = aProductos['anime'][i].nombre;
+            titulo.addEventListener('click', ModalProductosAnime);
+            divTitulo.appendChild(titulo);
+            line.appendChild(divTitulo);
+        
+            
+            precio = d.createElement('p');
+            divPrecio = d.createElement('div');
+
+            precio = d.createElement('p');
+            divPrecio.setAttribute('class', 'h3 ml-auto order-2');   
+            divPrecio.setAttribute('style', 'border: none; font-size: 1.5em;');
+            precio.setAttribute('style', 'margin:0; display: inline-block;')
+            spanPrecio = d.createElement('span');
+            spanPrecio.setAttribute('class', 'order-1');
+            spanPrecio.setAttribute('style', 'font-size: 1.3em; color: green; display: inline-block;');
+
+            precio.innerHTML = aProductos['anime'][i].precio;
+            spanPrecio.innerHTML = '$';
+            line.appendChild(divPrecio);
+            divPrecio.appendChild(spanPrecio);
+            divPrecio.appendChild(precio);
+        
+            textoParaModal = d.createElement('p');
+            textoParaModal.innerHTML = 'Tocá el nombre para saber más';
+            textoParaModal.setAttribute('style', 'font-size: 0.8em;');
+            divTitulo.appendChild(textoParaModal);
+    
+            boton = d.createElement('img');
+            boton.src = 'img/botonAgregar.png';
+            boton.alt = 'Boton para agregar el producto al carrito de compras';
+            boton.setAttribute('style', 'width: 6em; margin-left: 0; ')
+            cajaInfo.appendChild(boton);
+            boton.onclick = Cargar;
+    }
+
+}
+
+function Cine(){
+    CrearArticle();
+    banderaOff1 = true;
+    banderaOff3 = true;
+
+    if(banderaOff2 == true){
+
+    var fondo, modalBanner, bm, bam, imgBanner;
+    fondo = d.createElement('div');
+    fondo.setAttribute('class', 'modalBanner');
+    fondo.setAttribute('id', 'banner2');
+    section.appendChild(fondo);
+
+    modalBanner = d.createElement('div');
+    modalBanner.setAttribute('class', 'container-fluid');
+    modalBanner.setAttribute('style', '');
+    fondo.appendChild(modalBanner);
+
+    bam = d.createElement('a');
+    bam.href = '#';
+  
+   
+    bam.setAttribute('style', 'display: block; margin-right: 1em;');
+    bam.setAttribute('class', 'ml-auto');
+    bam.addEventListener('click', function(){
+        this.parentNode.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode.parentNode);
+    });
+    
+       
+    bm = d.createElement('img');
+    bm.src = 'img/sacar.png';
+    bm.alt = 'Boton para volver a la sección en la que se encontraba';
+    bm.setAttribute('style', 'width: 2em; height: 2em; margin-left: 2em;');
+
+    divBam = d.createElement('div');
+    divBam.setAttribute('class', 'row');
+
+    bam.appendChild(bm);
+    divBam.appendChild(bam);
+    modalBanner.appendChild(divBam);
+    int = d.createElement('div');
+    int.setAttribute('class', 'row');
+    
+    modalBanner.appendChild(int);
+
+ 
+    int.setAttribute('id', aOfertas[0].id);
+
+    divModalImg = d.createElement('div');
+    divModalImg.setAttribute('class', 'col-12 col-sm-6');
+    
+    divModalInfo = d.createElement('div');
+    divModalInfo.setAttribute('class', 'col-12 col-sm-6');
+    divModalInfo.setAttribute('style', 'margin-top: 1em;');
+
+    int.appendChild(divModalImg);
+    int.appendChild(divModalInfo);
+
+    imgBanner = d.createElement('img');
+    imgBanner.setAttribute('style', 'width: 90%; display: block; margin:auto; ');
+    imgBanner.src = aOfertas[0].img;
+    imgBanner.alt = aOfertas[0].alt;
+   
+
+    titleBanner = d.createElement('p');
+    titleBanner.setAttribute('style', 'margin: auto; font-size: 1.3em;  text-align: center;');
+    titleBanner.innerHTML = aOfertas[0].nombre;
+    
+    divModalImg.appendChild(titleBanner);
+    divModalImg.appendChild(imgBanner);
+    
+
+    textBann = d.createElement('p');
+    textBann.setAttribute('class', '');
+    textBann.setAttribute('style', 'margin: auto;  text-align: center;');
+    textBann.innerHTML = aOfertas[0].texto;
+
+
+    precioDivBann = d.createElement('div');
+    precioDivBann.setAttribute('style', ' margin: auto; margin-bottom: 1.5em; margin-top: 1em;');
+    precioSimb = d.createElement('p');
+    precioSimb.setAttribute('style', 'display: inline-block; margin: auto;');
+    precioSimb.innerHTML = '$';
+    precioBann = d.createElement('p');
+    precioBann.setAttribute('style', 'display: inline-block; margin: auto;');
+    precioBann.innerHTML= aOfertas[0].precio;
+    precioDivBann.appendChild(precioSimb);
+    precioDivBann.appendChild(precioBann);
+
+
+    btnAgregar = d.createElement('img');
+    btnAgregar.src = 'img/modal/meterCarrito.png';
+    btnAgregar.setAttribute('style', 'width: 90%; display: block; margin:auto;');
+    btnAgregar.onclick = CargarOferta;
+
+    divModalInfo.appendChild(textBann);
+    divModalInfo.appendChild(precioDivBann);
+    divModalInfo.appendChild(btnAgregar);
+    
+
+
+
+    
+    var time = setInterval(
+        function () {
+
+            if(section.lastElementChild.id == fondo.id)
+            
+                section.removeChild(section.lastElementChild);
+            
+            clearInterval(time);
+        },
+        4000
+    );
+
+
+    banderaOff2 = false;
+    }
+
+
+    backA = d.createElement('a');
+    backA.href = '#';
+    
+    backA.addEventListener('click', VaciarSection);
+    backA.addEventListener('click', BotonHome);
+    backA.onclick = Home;
+    
+    back = d.createElement('img');
+    back.src = 'img/back.png';
+    back.alt = 'Boton para volver a la home';
+    back.setAttribute('style', 'margin: 1em;');
+    
+    figureLogoSeccion = d.createElement('figure');
+    figureLogoSeccion.setAttribute('class', 'row')
+    logoSeccion = d.createElement('img');
+    logoSeccion.src = 'img/cine/logoCine.png';
+    logoSeccion.alt = 'Logo de seccion Anime';
+    logoSeccion.setAttribute('class' , 'mx-auto');
+    
+    
+    article.appendChild(backA);
+    article.appendChild(figureLogoSeccion);
+    backA.appendChild(back);
+    figureLogoSeccion.appendChild(logoSeccion);
+
+ 
+for (var i = 0; i < aProductos['cine'].length; i++){
+
+    cajaProducto = d.createElement('div');
+            cajaProducto.id = aProductos['cine'][i].id;
+            cajaProducto.setAttribute('class', 'row');
+            cajaProducto.setAttribute('style', 'padding: 0.2em; border: 2px solid black; background-color: gainsboro;')
+            article.appendChild(cajaProducto); 
+        
+            
+            cajaInterna = d.createElement('div');
+            cajaInterna.setAttribute('class', 'col-12 row');
+            cajaInterna.setAttribute('style', 'margin: 0; border: none;');
+            cajaProducto.appendChild(cajaInterna);
+            img = d.createElement('img');
+            img.src = aProductos['cine'][i].img;
+            img.alt = aProductos['cine'][i].alt;
+            img.setAttribute('class', '');
+            img.setAttribute('style', 'flex: 0 0 100%; max-width: 20em; margin: auto;');
+            cajaInterna.appendChild(img);
+
+            
+            cajaInfo = d.createElement('div');
+            cajaInfo.setAttribute('style', 'border: none; margin-top: 1em;')
+            cajaInfo.setAttribute('class', ' col-12 ml-auto');
+            cajaInterna.appendChild(cajaInfo);
+
+            
+            line = d.createElement('div');
+            line.setAttribute('class', 'row');
+            line.setAttribute('style', 'border: none;');
+            
+            cajaInfo.appendChild(line);
+
+
+            divTitulo = d.createElement('div');
+            titulo = d.createElement('p');
+            titulo.setAttribute('style', 'font-size: 1.3em; margin: 0;');
+            titulo.innerHTML = aProductos['cine'][i].nombre;
+            titulo.addEventListener('click', ModalProductosCine);
+            divTitulo.appendChild(titulo);
+            line.appendChild(divTitulo);
+        
+            
+            precio = d.createElement('p');
+            divPrecio = d.createElement('div');
+
+            precio = d.createElement('p');
+            divPrecio.setAttribute('class', 'h3 ml-auto order-2');   
+            divPrecio.setAttribute('style', 'border: none; font-size: 1.5em;');
+            precio.setAttribute('style', 'margin:0; display: inline-block;')
+            spanPrecio = d.createElement('span');
+            spanPrecio.setAttribute('class', 'order-1');
+            spanPrecio.setAttribute('style', 'font-size: 1.3em; color: green; display: inline-block;');
+
+            precio.innerHTML = aProductos['cine'][i].precio;
+            spanPrecio.innerHTML = '$';
+            line.appendChild(divPrecio);
+            divPrecio.appendChild(spanPrecio);
+            divPrecio.appendChild(precio);
+        
+            textoParaModal = d.createElement('p');
+            textoParaModal.innerHTML = 'Tocá el nombre para saber más';
+            textoParaModal.setAttribute('style', 'font-size: 0.8em;');
+            divTitulo.appendChild(textoParaModal);
+    
+            boton = d.createElement('img');
+            boton.src = 'img/botonAgregar.png';
+            boton.alt = 'Boton para agregar el producto al carrito de compras';
+            boton.setAttribute('style', 'width: 6em; margin-left: 0; ')
+            cajaInfo.appendChild(boton);
+            boton.onclick = Cargar;
+    }
+
+}
+
+function Tv(){
+    CrearArticle();
+    banderaOff1 = true;
+    banderaOff2 = true;
+
+    if(banderaOff3 == true){
+
+    var fondo, modalBanner, bm, bam, imgBanner;
+    fondo = d.createElement('div');
+    fondo.setAttribute('class', 'modalBanner');
+    fondo.setAttribute('id', 'banner3');
+    section.appendChild(fondo);
+
+    modalBanner = d.createElement('div');
+    modalBanner.setAttribute('class', 'container-fluid');
+    modalBanner.setAttribute('style', '');
+    fondo.appendChild(modalBanner);
+
+    bam = d.createElement('a');
+    bam.href = '#';
+  
+   
+    bam.setAttribute('style', 'display: block; margin-right: 1em;');
+    bam.setAttribute('class', 'ml-auto');
+    bam.addEventListener('click', function(){
+        this.parentNode.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode.parentNode);
+    });
+    
+       
+    bm = d.createElement('img');
+    bm.src = 'img/sacar.png';
+    bm.alt = 'Boton para volver a la sección en la que se encontraba';
+    bm.setAttribute('style', 'width: 2em; height: 2em; margin-left: 2em;');
+
+    divBam = d.createElement('div');
+    divBam.setAttribute('class', 'row');
+
+    bam.appendChild(bm);
+    divBam.appendChild(bam);
+    modalBanner.appendChild(divBam);
+    int = d.createElement('div');
+    int.setAttribute('class', 'row');
+    
+    modalBanner.appendChild(int);
+
+ 
+    int.setAttribute('id', aOfertas[2].id);
+
+    divModalImg = d.createElement('div');
+    divModalImg.setAttribute('class', 'col-12 col-sm-6');
+    
+    divModalInfo = d.createElement('div');
+    divModalInfo.setAttribute('class', 'col-12 col-sm-6');
+    divModalInfo.setAttribute('style', 'margin-top: 1em;');
+
+    int.appendChild(divModalImg);
+    int.appendChild(divModalInfo);
+
+    imgBanner = d.createElement('img');
+    imgBanner.setAttribute('style', 'width: 90%; display: block; margin:auto; ');
+    imgBanner.src = aOfertas[2].img;
+    imgBanner.alt = aOfertas[2].alt;
+   
+
+    titleBanner = d.createElement('p');
+    titleBanner.setAttribute('style', 'margin: auto; font-size: 1.3em; text-align: center;');
+    titleBanner.innerHTML = aOfertas[2].nombre;
+    
+    divModalImg.appendChild(titleBanner);
+    divModalImg.appendChild(imgBanner);
+    
+
+    textBann = d.createElement('p');
+    textBann.setAttribute('class', '');
+    textBann.setAttribute('style', 'margin: auto;  text-align: center;');
+    textBann.innerHTML = aOfertas[2].texto;
+
+
+    precioDivBann = d.createElement('div');
+    precioDivBann.setAttribute('style', ' margin: auto; margin-bottom: 1.5em; margin-top: 1em;');
+    precioSimb = d.createElement('p');
+    precioSimb.setAttribute('style', 'display: inline-block; margin: auto;');
+    precioSimb.innerHTML = '$';
+    precioBann = d.createElement('p');
+    precioBann.setAttribute('style', 'display: inline-block; margin: auto;');
+    precioBann.innerHTML= aOfertas[2].precio;
+    precioDivBann.appendChild(precioSimb);
+    precioDivBann.appendChild(precioBann);
+
+
+    btnAgregar = d.createElement('img');
+    btnAgregar.src = 'img/modal/meterCarrito.png';
+    btnAgregar.setAttribute('style', 'width: 90%; display: block; margin:auto;');
+    btnAgregar.onclick = CargarOferta;
+
+    divModalInfo.appendChild(textBann);
+    divModalInfo.appendChild(precioDivBann);
+    divModalInfo.appendChild(btnAgregar);
+    
+
+
+
+    
+    var time = setInterval(
+        function () {
+
+            if(section.lastElementChild.id == fondo.id)
+            
+                section.removeChild(section.lastElementChild);
+            
+            clearInterval(time);
+        },
+        4000
+    );
+
+    banderaOff3 = false;
+    }
+
+   
+    backA = d.createElement('a');
+    backA.href = '#';
+    
+    backA.addEventListener('click', VaciarSection);
+    backA.addEventListener('click', BotonHome);
+    backA.onclick = Home;
+    
+    back = d.createElement('img');
+    back.src = 'img/back.png';
+    back.alt = 'Boton para volver a la home';
+    back.setAttribute('style', 'margin: 1em;');
+    
+    figureLogoSeccion = d.createElement('figure');
+    figureLogoSeccion.setAttribute('class', 'row')
+    logoSeccion = d.createElement('img');
+    logoSeccion.src = 'img/tv/logoTv.png';
+    logoSeccion.alt = 'Logo de seccion Anime';
+    logoSeccion.setAttribute('class' , 'mx-auto');
+    
+    
+    article.appendChild(backA);
+    article.appendChild(figureLogoSeccion);
+    backA.appendChild(back);
+    figureLogoSeccion.appendChild(logoSeccion);
+
+ 
+for (var i = 0; i < aProductos['tv'].length; i++){
+
+    cajaProducto = d.createElement('div');
+            cajaProducto.id = aProductos['tv'][i].id;
+            cajaProducto.setAttribute('class', 'row');
+            cajaProducto.setAttribute('style', 'padding: 0.2em; border: 2px solid black; background-color: gainsboro;')
+            article.appendChild(cajaProducto); 
+        
+            
+            cajaInterna = d.createElement('div');
+            cajaInterna.setAttribute('class', 'col-12 row');
+            cajaInterna.setAttribute('style', 'margin: 0; border: none;');
+            cajaProducto.appendChild(cajaInterna);
+            img = d.createElement('img');
+            img.src = aProductos['tv'][i].img;
+            img.alt = aProductos['tv'][i].alt;
+            img.setAttribute('class', '');
+            img.setAttribute('style', 'flex: 0 0 100%; max-width: 20em; margin: auto;');
+            cajaInterna.appendChild(img);
+
+            
+            cajaInfo = d.createElement('div');
+            cajaInfo.setAttribute('style', 'border: none; margin-top: 1em;')
+            cajaInfo.setAttribute('class', ' col-12 ml-auto');
+            cajaInterna.appendChild(cajaInfo);
+
+            
+            line = d.createElement('div');
+            line.setAttribute('class', 'row');
+            line.setAttribute('style', 'border: none;');
+            
+            cajaInfo.appendChild(line);
+
+
+            divTitulo = d.createElement('div');
+            titulo = d.createElement('p');
+            titulo.setAttribute('style', 'font-size: 1.3em; margin: 0;');
+            titulo.innerHTML = aProductos['tv'][i].nombre;
+            titulo.addEventListener('click', ModalProductosTv);
+            divTitulo.appendChild(titulo);
+            line.appendChild(divTitulo);
+        
+            
+            precio = d.createElement('p');
+            divPrecio = d.createElement('div');
+
+            precio = d.createElement('p');
+            divPrecio.setAttribute('class', 'h3 ml-auto order-2');   
+            divPrecio.setAttribute('style', 'border: none; font-size: 1.5em;');
+            precio.setAttribute('style', 'margin:0; display: inline-block;')
+            spanPrecio = d.createElement('span');
+            spanPrecio.setAttribute('class', 'order-1');
+            spanPrecio.setAttribute('style', 'font-size: 1.3em; color: green; display: inline-block;');
+
+            precio.innerHTML = aProductos['tv'][i].precio;
+            spanPrecio.innerHTML = '$';
+            line.appendChild(divPrecio);
+            divPrecio.appendChild(spanPrecio);
+            divPrecio.appendChild(precio);
+        
+            textoParaModal = d.createElement('p');
+            textoParaModal.innerHTML = 'Tocá el nombre para saber más';
+            textoParaModal.setAttribute('style', 'font-size: 0.8em;');
+            divTitulo.appendChild(textoParaModal);
+    
+            boton = d.createElement('img');
+            boton.src = 'img/botonAgregar.png';
+            boton.alt = 'Boton para agregar el producto al carrito de compras';
+            boton.setAttribute('style', 'width: 6em; margin-left: 0; ')
+            cajaInfo.appendChild(boton);
+            boton.onclick = Cargar;
+    }
+
+}
+
+function Cargar(){
+    var id = parseInt(this.parentNode.parentNode.parentNode.id);
+    var cargarNombreProducto = this.parentNode.firstElementChild.firstElementChild.firstElementChild.innerHTML;
+    var cargarPrecioProducto = this.parentNode.firstElementChild.lastElementChild.lastElementChild.innerHTML;
+    var cargarImgProducto = this.parentNode.parentNode.firstElementChild;
+    
+    id = id + Math.random();
+    
+    var objetoCarrito = {id,
+                        cargarImgProducto,
+                        cargarNombreProducto,
+                        cargarPrecioProducto,
+                        }; 
+
+
+    aCarrito.push(objetoCarrito);
+    contadorDeProductos++;
+    spanNegro.innerHTML = contadorDeProductos;
+    spanBlanco.innerHTML = parseInt(spanBlanco.innerHTML) + parseInt(cargarPrecioProducto);
+}
+
+function CargarMejores(){
+    var id = parseInt(this.parentNode.parentNode.id);
+    var cargarNombreProducto = this.parentNode.firstElementChild.innerHTML;
+    var cargarPrecioProducto = this.parentNode.firstElementChild.nextElementSibling.lastElementChild.innerHTML;
+    var cargarImgProducto = this.parentNode.parentNode.firstElementChild;
+    
+    id = id + Math.random();
+    
+    var objetoCarrito = {id,
+                        cargarImgProducto,
+                        cargarNombreProducto,
+                        cargarPrecioProducto,
+                        }; 
+
+
+    aCarrito.push(objetoCarrito);
+    contadorDeProductos++;
+    spanNegro.innerHTML = contadorDeProductos;
+    spanBlanco.innerHTML = parseInt(spanBlanco.innerHTML) + parseInt(cargarPrecioProducto);
+}
+
+function CargarModal(){
+    var id = this.parentNode.parentNode.id;
+    var cargarNombreProducto = this.parentNode.parentNode.firstElementChild.nextElementSibling.nextElementSibling.innerHTML;
+    var cargarPrecioProducto = this.parentNode.parentNode.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.lastElementChild.innerHTML;
+    var cargarImgProducto = this.parentNode.parentNode.firstElementChild.nextElementSibling.firstElementChild;
+    
+    id = id + Math.random();
+
+    var objetoCarrito = {id,
+                        cargarImgProducto,
+                        cargarNombreProducto,
+                        cargarPrecioProducto,
+                        }; 
+
+
+    aCarrito.push(objetoCarrito);
+    contadorDeProductos++;
+    spanNegro.innerHTML = contadorDeProductos;
+    spanBlanco.innerHTML = parseInt(spanBlanco.innerHTML) + parseInt(cargarPrecioProducto);
+}
+
+function CargarOferta(){
+    var id = parseInt(this.parentNode.parentNode.id);
+    var cargarNombreProducto = this.parentNode.parentNode.firstElementChild.firstElementChild.innerHTML;
+    var cargarPrecioProducto = this.previousElementSibling.lastElementChild.innerHTML;
+    var cargarImgProducto = this.parentNode.parentNode.firstElementChild.lastElementChild;
+    
+    id = id + Math.random();
+    
+    var objetoCarrito = {id,
+                        cargarImgProducto,
+                        cargarNombreProducto,
+                        cargarPrecioProducto,
+                        }; 
+
+
+    aCarrito.push(objetoCarrito);
+    contadorDeProductos++;
+    spanNegro.innerHTML = contadorDeProductos;
+    spanBlanco.innerHTML = parseInt(spanBlanco.innerHTML) + parseInt(cargarPrecioProducto);
+}
+
+function VaciarSection(){
+        section.removeChild(article);
+}
+
+function BotonHome(){
+    imghome.src = 'img/nav/homeTarget.png';
+    imganime.src = 'img/nav/anime_1.png';
+    imgcine.src = 'img/nav/cine.png';
+    imgtv.src = 'img/nav/tv_1.png';
+}
+
+function SacarModal(){
+    var sacarModal = section.getElementsByClassName('modal');
+    section.removeChild(sacarModal[0]);
+    bandera = true;  
+}
+
+function ModalProductosAnime(){
+    var fondo, modal, arribaModal, categoria, imgModal, divImgModal, descripcion, nombreModal, precioModal,
+     anadir, divAnadir, divPrecioModal, signoPrecioModal;
+    for (var i = 0; i < aProductos['anime'].length; i++){
+        if(aProductos['anime'][i].nombre == this.innerHTML){
+
+
+            fondo = d.createElement('div');
+            fondo.setAttribute('style', 'background-color: rgba(66,66,66,.8); padding: 6em 1.2em 6em 1.2em; ');
+            fondo.setAttribute('class', 'modal');
+            section.appendChild(fondo);
+
+            modal = d.createElement('div');
+            modal.id = aProductos['anime'][i].id;
+            modal.setAttribute('style', 'background-color: gainsboro; padding: 1em; width: 100%; overflow-y: scroll; border-radius: 15px;');
+            modal.setAttribute('class', 'container');
+            fondo.appendChild(modal);
+
+            arribaModal = d.createElement('div');
+            arribaModal.setAttribute('class', 'row');
+            modal.appendChild(arribaModal);
+
+            backA = d.createElement('a');
+            backA.href = '#';
+            backA.onclick = function(){
+                return false;
+            }
+            backA.setAttribute('class', 'col-3');
+            backA.setAttribute('return', 'false');
+            backA.addEventListener('click', SacarModal);
+            
+            back = d.createElement('img');
+            back.src = 'img/back.png';
+            back.alt = 'Boton para volver a la sección Anime';
+            back.setAttribute('style', 'margin: 1em; height: 21px; width: 27px;');
+
+            backA.appendChild(back);
+            arribaModal.appendChild(backA);
+
+            categoria = d.createElement('p');
+            categoria.setAttribute('style', 'margin: 0; display: inline-block; font-size: 1em;');
+            categoria.setAttribute('class', 'col-auto ml-auto');
+            categoria.innerHTML = 'Categoría > Anime';
+            arribaModal.appendChild(categoria);
+
+            divImgModal = d.createElement('div');
+            divImgModal.setAttribute('class', 'row');
+            imgModal = d.createElement('img');
+            imgModal.src = aProductos['anime'][i].img;
+            imgModal.alt = aProductos['anime'][i].alt;
+            imgModal.setAttribute('style', '; margin: auto; width: 8em;');
+            
+            divImgModal.appendChild(imgModal);
+            modal.appendChild(divImgModal);
+            
+            nombreModal = d.createElement('p');
+            nombreModal.innerHTML = aProductos['anime'][i].nombre;
+            nombreModal.setAttribute('style', 'margin: 0; font-size: 1em; display: inline-block;');
+            modal.appendChild(nombreModal);
+
+
+            divPrecioModal = d.createElement('div');
+            divPrecioModal.setAttribute('style', 'margin: 0.3em; margin-left: 0;');
+            signoPrecioModal = d.createElement('p');
+            signoPrecioModal.setAttribute('style', 'display: inline-block; margin: 0;');
+            signoPrecioModal.innerHTML = '$';
+
+            precioModal = d.createElement('p');
+            precioModal.innerHTML = aProductos['anime'][i].precio;
+            precioModal.setAttribute('style', 'margin: 0; font-size: 1em; display: inline-block;');
+            
+            divPrecioModal.appendChild(signoPrecioModal);
+            divPrecioModal.appendChild(precioModal);
+            modal.appendChild(divPrecioModal);
+
+
+            descripcion = d.createElement('p');
+            descripcion.innerHTML = aProductos['anime'][i].texto;
+            descripcion.setAttribute('style', 'margin: 0; font-size: 0.9em;');
+            modal.appendChild(descripcion);
+
+            divAnadir = d.createElement('div');
+            divAnadir.setAttribute('class', 'row');
+            divAnadir.setAttribute('style', 'margin-top: 1em;');
+            anadir = d.createElement('img');
+            anadir.src = 'img/modal/meterCarrito.png';
+            anadir.alt = 'Boton para añadir el producto al carrito';
+            anadir.setAttribute('class', 'mx-auto');
+            anadir.setAttribute('style', 'width: 8em;')
+            anadir.onclick = CargarModal;
+            divAnadir.appendChild(anadir);
+            modal.appendChild(divAnadir);
+
+        }
+    }
+}
+
+function ModalProductosCine(){
+    var fondo, modal, arribaModal, categoria, imgModal, divImgModal, descripcion, nombreModal, precioModal,
+     anadir, divAnadir, divPrecioModal, signoPrecioModal;
+    for (var i = 0; i < aProductos['cine'].length; i++){
+        if(aProductos['cine'][i].nombre == this.innerHTML){
+
+
+            fondo = d.createElement('div');
+            fondo.setAttribute('style', 'background-color: rgba(66,66,66,.8); padding: 6em 1.2em 6em 1.2em; ');
+            fondo.setAttribute('class', 'modal');
+            section.appendChild(fondo);
+
+            modal = d.createElement('div');
+            modal.id = aProductos['anime'][i].id;
+            modal.setAttribute('style', 'background-color: gainsboro; padding: 1em; width: 100%; overflow-y: scroll; border-radius: 15px;');
+            modal.setAttribute('class', 'container');
+            fondo.appendChild(modal);
+
+            arribaModal = d.createElement('div');
+            arribaModal.setAttribute('class', 'row');
+            modal.appendChild(arribaModal);
+
+            backA = d.createElement('a');
+            backA.href = '#';
+            backA.onclick = function(){
+                return false;
+            }
+            backA.setAttribute('class', 'col-3');
+            backA.setAttribute('return', 'false');
+            backA.addEventListener('click', SacarModal);
+            
+            back = d.createElement('img');
+            back.src = 'img/back.png';
+            back.alt = 'Boton para volver a la sección Anime';
+            back.setAttribute('style', 'margin: 1em; height: 21px; width: 27px;');
+
+            backA.appendChild(back);
+            arribaModal.appendChild(backA);
+
+            categoria = d.createElement('p');
+            categoria.setAttribute('style', 'margin: 0; display: inline-block; font-size: 1em;');
+            categoria.setAttribute('class', 'col-auto ml-auto');
+            categoria.innerHTML = 'Categoría > Películas';
+            arribaModal.appendChild(categoria);
+
+            divImgModal = d.createElement('div');
+            divImgModal.setAttribute('class', 'row');
+            imgModal = d.createElement('img');
+            imgModal.src = aProductos['cine'][i].img;
+            imgModal.alt = aProductos['cine'][i].alt;
+            imgModal.setAttribute('style', '; margin: auto; width: 8em;');
+            
+            divImgModal.appendChild(imgModal);
+            modal.appendChild(divImgModal);
+            
+            nombreModal = d.createElement('p');
+            nombreModal.innerHTML = aProductos['cine'][i].nombre;
+            nombreModal.setAttribute('style', 'margin: 0; font-size: 1em; display: inline-block;');
+            modal.appendChild(nombreModal);
+
+
+            divPrecioModal = d.createElement('div');
+            divPrecioModal.setAttribute('style', 'margin: 0.3em; margin-left: 0;');
+            signoPrecioModal = d.createElement('p');
+            signoPrecioModal.setAttribute('style', 'display: inline-block; margin: 0;');
+            signoPrecioModal.innerHTML = '$';
+
+            precioModal = d.createElement('p');
+            precioModal.innerHTML = aProductos['cine'][i].precio;
+            precioModal.setAttribute('style', 'margin: 0; font-size: 1em; display: inline-block;');
+            
+            divPrecioModal.appendChild(signoPrecioModal);
+            divPrecioModal.appendChild(precioModal);
+            modal.appendChild(divPrecioModal);
+
+
+            descripcion = d.createElement('p');
+            descripcion.innerHTML = aProductos['cine'][i].texto;
+            descripcion.setAttribute('style', 'margin: 0; font-size: 0.9em;');
+            modal.appendChild(descripcion);
+
+            divAnadir = d.createElement('div');
+            divAnadir.setAttribute('class', 'row');
+            divAnadir.setAttribute('style', 'margin-top: 1em;');
+            anadir = d.createElement('img');
+            anadir.src = 'img/modal/meterCarrito.png';
+            anadir.alt = 'Boton para añadir el producto al carrito';
+            anadir.setAttribute('class', 'mx-auto');
+            anadir.setAttribute('style', 'width: 8em;')
+            anadir.onclick = CargarModal;
+            divAnadir.appendChild(anadir);
+            modal.appendChild(divAnadir);
+
+        }
+    }
+}
+
+function ModalProductosTv(){
+    var fondo, modal, arribaModal, categoria, imgModal, divImgModal, descripcion, nombreModal, precioModal,
+     anadir, divAnadir, divPrecioModal, signoPrecioModal;
+    for (var i = 0; i < aProductos['tv'].length; i++){
+        if(aProductos['tv'][i].nombre == this.innerHTML){
+
+
+            fondo = d.createElement('div');
+            fondo.setAttribute('style', 'background-color: rgba(66,66,66,.8); padding: 6em 1.2em 6em 1.2em; ');
+            fondo.setAttribute('class', 'modal');
+            section.appendChild(fondo);
+
+            modal = d.createElement('div');
+            modal.id = aProductos['anime'][i].id;
+            modal.setAttribute('style', 'background-color: gainsboro; padding: 1em; width: 100%; overflow-y: scroll; border-radius: 15px;');
+            modal.setAttribute('class', 'container');
+            fondo.appendChild(modal);
+
+            arribaModal = d.createElement('div');
+            arribaModal.setAttribute('class', 'row');
+            modal.appendChild(arribaModal);
+
+            backA = d.createElement('a');
+            backA.href = '#';
+            backA.onclick = function(){
+                return false;
+            }
+            backA.setAttribute('class', 'col-3');
+            backA.setAttribute('return', 'false');
+            backA.addEventListener('click', SacarModal);
+            
+            back = d.createElement('img');
+            back.src = 'img/back.png';
+            back.alt = 'Boton para volver a la sección Anime';
+            back.setAttribute('style', 'margin: 1em; height: 21px; width: 27px;');
+
+            backA.appendChild(back);
+            arribaModal.appendChild(backA);
+
+            categoria = d.createElement('p');
+            categoria.setAttribute('style', 'margin: 0; display: inline-block; font-size: 1em;');
+            categoria.setAttribute('class', 'col-auto ml-auto');
+            categoria.innerHTML = 'Categoría > Tv';
+            arribaModal.appendChild(categoria);
+
+            divImgModal = d.createElement('div');
+            divImgModal.setAttribute('class', 'row');
+            imgModal = d.createElement('img');
+            imgModal.src = aProductos['tv'][i].img;
+            imgModal.alt = aProductos['tv'][i].alt;
+            imgModal.setAttribute('style', '; margin: auto; width: 8em;');
+            
+            divImgModal.appendChild(imgModal);
+            modal.appendChild(divImgModal);
+            
+            nombreModal = d.createElement('p');
+            nombreModal.innerHTML = aProductos['tv'][i].nombre;
+            nombreModal.setAttribute('style', 'margin: 0; font-size: 1em; display: inline-block;');
+            modal.appendChild(nombreModal);
+
+
+            divPrecioModal = d.createElement('div');
+            divPrecioModal.setAttribute('style', 'margin: 0.3em; margin-left: 0;');
+            signoPrecioModal = d.createElement('p');
+            signoPrecioModal.setAttribute('style', 'display: inline-block; margin: 0;');
+            signoPrecioModal.innerHTML = '$';
+
+            precioModal = d.createElement('p');
+            precioModal.innerHTML = aProductos['tv'][i].precio;
+            precioModal.setAttribute('style', 'margin: 0; font-size: 1em; display: inline-block;');
+            
+            divPrecioModal.appendChild(signoPrecioModal);
+            divPrecioModal.appendChild(precioModal);
+            modal.appendChild(divPrecioModal);
+
+
+            descripcion = d.createElement('p');
+            descripcion.innerHTML = aProductos['tv'][i].texto;
+            descripcion.setAttribute('style', 'margin: 0; font-size: 0.9em;');
+            modal.appendChild(descripcion);
+
+            divAnadir = d.createElement('div');
+            divAnadir.setAttribute('class', 'row');
+            divAnadir.setAttribute('style', 'margin-top: 1em;');
+            anadir = d.createElement('img');
+            anadir.src = 'img/modal/meterCarrito.png';
+            anadir.alt = 'Boton para añadir el producto al carrito';
+            anadir.setAttribute('class', 'mx-auto');
+            anadir.setAttribute('style', 'width: 8em;')
+            anadir.onclick = CargarModal;
+            divAnadir.appendChild(anadir);
+            modal.appendChild(divAnadir);
+
+        }
+    }
+}
+
+function ModalCarrito(){
+    var fondoCarrito, modalCarrito, logoCarrito, divProductos, mensaje, sacarProducto, botonSacarTodos, total,
+     totalP, totalNum, botonCompra, botonCancelar, divProductoCarrito, imgProductoCarrito, nombreProductoCarrito,
+      precioProductoCarrito, divtro, permiso = false;
+    
+    if(bandera == true){
+    
+    fondoCarrito = d.createElement('div');
+    fondoCarrito.id = 'carrito';
+    fondoCarrito.setAttribute('class', 'modal');
+    section.appendChild(fondoCarrito);
+
+    modalCarrito = d.createElement('div');
+    modalCarrito.setAttribute('style', 'background-color: white; padding: 1em; width: 90%; overflow-y: scroll; margin: 5em 0 5em 0; border-radius: 15px;');
+    fondoCarrito.appendChild(modalCarrito);
+
+    backA = d.createElement('a');
+    backA.href = '#';
+    backA.onclick = function(){
+        return false;
+    }
+   
+    backA.setAttribute('style', 'display: block');
+    backA.addEventListener('click', SacarModal);
+        
+    back = d.createElement('img');
+    back.src = 'img/back.png';
+    back.alt = 'Boton para volver a la sección en la que se encontraba';
+    back.setAttribute('style', 'margin: 1em; height: 21px; width: 27px;');
+
+    backA.appendChild(back);
+    modalCarrito.appendChild(backA);
+
+    logoCarrito = d.createElement('img');
+    logoCarrito.src = 'img/carrito/logoCarrito.png';
+    logoCarrito.alt = 'Logo de carrito de compras';
+    logoCarrito.setAttribute('style', 'display: block; margin: auto;')
+    modalCarrito.appendChild(logoCarrito);
+
+    divProductos = d.createElement('div');
+    divProductos.setAttribute('class', 'container-fluid');
+    divProductos.setAttribute('style', 'width: 95%; margin-bottom: 0.5em;');
+    modalCarrito.appendChild(divProductos);
+
+    mensaje = d.createElement('p');
+    mensaje.setAttribute('style', 'margin: auto; text-align: center;');
+    mensaje.innerHTML = 'No se han agregado productos al carrito';
+    divProductos.appendChild(mensaje);
+
+   
+
+    for(var i = 0; i < aCarrito.length; i++){   
+
+
+        
+
+        divProductoCarrito = d.createElement('div');
+        divProductoCarrito.setAttribute('style', 'padding: 0.2em; border: 1px solid black; background-color: gainsboro;')
+        divProductoCarrito.setAttribute('class', 'row');
+        divProductoCarrito.id = aCarrito[i].id;
+        divProductos.appendChild(divProductoCarrito);
+        
+
+        imgProductoCarrito = d.createElement('img');
+        imgProductoCarrito.src = aCarrito[i].cargarImgProducto.src;
+        divProductoCarrito.appendChild(imgProductoCarrito);
+
+        sacarProducto = d.createElement('img');
+        sacarProducto.setAttribute('style', 'width: 2em; height: 2em; margin-left: 2em;');
+        sacarProducto.setAttribute('class', 'ml-auto');
+        sacarProducto.src = 'img/sacar.png';
+
+        sacarProducto.onclick = function(){
+            for (var i = 0; i < aCarrito.length; i++){
+                if(aCarrito[i].id == this.parentNode.id){
+                    aCarrito.splice(i, 1);
+                
+            this.parentNode.parentNode.removeChild(this.parentNode);
+
+            if(aCarrito == []){
+                permiso = false;
+                divProductos.appendChild(mensaje);
+            }
+
+            contadorDeProductos--;
+            spanNegro.innerHTML = contadorDeProductos;
+            spanBlanco.innerHTML = parseInt(spanBlanco.innerHTML) - parseInt(this.nextElementSibling.lastElementChild.lastElementChild.innerHTML);
+            totalNum.innerHTML = spanBlanco.innerHTML;
+
+           
+            
+                }
+        }
+            
+        }
+        
+        divProductoCarrito.appendChild(sacarProducto);
+
+        divtro = d.createElement('div');
+        divtro.setAttribute('style', 'display: block;')
+        divProductoCarrito.appendChild(divtro);
+
+        
+
+        nombreProductoCarrito = d.createElement('p');
+        nombreProductoCarrito.setAttribute('style', 'margin: 0;');
+        nombreProductoCarrito.innerHTML = aCarrito[i].cargarNombreProducto;
+        divtro.appendChild(nombreProductoCarrito);
+
+        divPrecio2 = d.createElement('div');
+        divPrecio2.setAttribute('style', '');
+        simbolPrecio = d.createElement('p');
+        simbolPrecio.innerHTML = '$';
+        simbolPrecio.setAttribute('style', 'display: inline-block; ');
+        precioProductoCarrito = d.createElement('p');
+        precioProductoCarrito.setAttribute('style', 'margin: 0; padding: 0; display: inline-block;');
+        precioProductoCarrito.setAttribute('class', '');
+        precioProductoCarrito.innerHTML = aCarrito[i].cargarPrecioProducto;
+
+
+        divPrecio2.appendChild(simbolPrecio);
+        divPrecio2.appendChild(precioProductoCarrito);
+        divtro.appendChild(divPrecio2);
+
+
+
+       
+        
+        
+    }
+
+    botonSacarTodos = d.createElement('img');
+    botonSacarTodos.src = 'img/carrito/vaciarCarrito.png';
+    botonSacarTodos.setAttribute('style', 'margin-bottom: 0.5em;')
+
+    botonSacarTodos.onclick = function(){
+        aCarrito = [];
+        while (divProductos.firstChild) {
+            divProductos.removeChild(divProductos.lastChild);
+          }
+          divProductos.appendChild(mensaje);
+          spanNegro.innerHTML = 0;
+          contadorDeProductos = 0;
+          spanBlanco.innerHTML = 0;
+          totalNum.innerHTML = spanBlanco.innerHTML;
+    }
+    modalCarrito.appendChild(botonSacarTodos);
+
+    cajaTotal = d.createElement('div');
+    cajaTotal.setAttribute('class', 'container-fluid');
+    cajaTotal.setAttribute('style', 'border: none; border-top: 2px solid black; background-color: white;');
+    total = d.createElement('div');
+    total.setAttribute('style', 'border: none; background-color: white;');
+    total.setAttribute('class', 'row');
+    totalP = d.createElement('p');
+    totalP.setAttribute('class', 'col-auto mr-auto');
+    totalP.setAttribute('style', 'margin: 0; color: black; font-size: 2em; font-weight: bold; display: inline-block;');
+    totalP.innerHTML = 'Total: $';
+    totalNum = d.createElement('p');
+    totalNum.setAttribute('class', 'col-auto ml-auto');
+    totalNum.setAttribute('style', 'margin: 0; color: black; font-size: 2em; font-weight: bold; display: inline-block;');
+    totalNum.innerHTML = spanBlanco.innerHTML;
+    cajaTotal.appendChild(total);
+    total.appendChild(totalP);
+    total.appendChild(totalNum);
+
+    modalCarrito.appendChild(cajaTotal);
+
+    botonCompra = d.createElement('img');
+    botonCompra.src = 'img/carrito/comprar.png';
+    botonCompra.alt = 'Botón para realizar la compra';
+    botonCompra.setAttribute('style', 'display: block; margin: auto; margin-top: 0.5em; width: 80%;');
+   
+if(divProductos.lastElementChild == divProductoCarrito){
+    divProductos.removeChild(mensaje);
+    permiso = true;
+}else if(divProductos.lastElementChild != divProductoCarrito){
+    divProductos.appendChild(mensaje);
+    permiso = false;
+}
+
+
+
+
+    if(permiso == true){
+        botonCompra.addEventListener('click', SacarModal);
+        botonCompra.addEventListener('click', FormularioCompra);
+    }
+    
+    modalCarrito.appendChild(botonCompra);
+
+    botonCancelar = d.createElement('img');
+    botonCancelar.src = 'img/cancelar.png';
+    botonCancelar.alt = 'Botón para cancelar la compra';
+    botonCancelar.setAttribute('style', 'display: block; margin: auto; margin-top: 0.5em; width: auto;');
+    botonCancelar.addEventListener('click', SacarModal);
+    modalCarrito.appendChild(botonCancelar);
+    
+   
+    bandera = false;
+   
+    
+}
+}
+
+function FormularioCompra(){
+    var fondoForm, modalForm, form, fieldset1, fieldset2, fieldset3, fieldset4,
+    divDatosPersonales, pDatosPersonales, inputNombre, inputTelefono, inputMail, divEnvio, pDivEnvio, divRadio,
+    labelRadio1, labelRadio2, inputRadio1, inputRadio2, inputDire, inputDepar, divRadio1, divRadio2, inputCPostal,
+    inputFecha, inputHora1, inputHora2, divEntrega, divFecha, divHora, labelFecha, labelHora1, labelHora2,
+    divPago, pDivPago, divRadioPago, divDebito, divCredito, inputCredito, inputDebito, labelCredito, labelDebito,
+    selectTarjetas, visa, masterCard, maestro, AmericanExpress, inputNumeroDeTarjeta, inputCodigoDeSeuridad,
+    divVencimiento, labelVencimiento, inputVencimiento, finalizarCompra, botonCancelar;
+
+    fondoForm = d.createElement('div');
+    fondoForm.setAttribute('class', 'modal');
+    section.appendChild(fondoForm);
+
+    modalForm = d.createElement('div');
+    modalForm.setAttribute('class', 'container-fluid');
+    modalForm.setAttribute('style', 'background-color: white; padding: 1em; width: 90%; overflow-y: scroll; margin: 5em 0 5em 0; border-radius: 15px;');
+    fondoForm.appendChild(modalForm);
+
+    backA = d.createElement('a');
+    backA.href = '#';
+   
+    backA.setAttribute('style', 'display: block');
+    backA.addEventListener('click', SacarModal);
+    backA.addEventListener('click', ModalCarrito);
+        
+    back = d.createElement('img');
+    back.src = 'img/back.png';
+    back.alt = 'Boton para volver a la sección en la que se encontraba';
+    back.setAttribute('style', 'margin: 1em; height: 21px; width: 27px;');
+
+    backA.appendChild(back);
+    modalForm.appendChild(backA);
+
+    
+
+    form = d.createElement('form');
+    form.setAttribute('action', '');
+    form.setAttribute('method', 'post');
+    form.setAttribute('enctype', 'multipart/form-data');
+    form.setAttribute('class', 'container-fluid');
+    modalForm.appendChild(form);
+
+   
+    fieldset1 = d.createElement('fieldset');
+    fieldset1.setAttribute('style', 'display: flex;')
+    fieldset2 = d.createElement('fieldset');
+    fieldset2.setAttribute('style', 'display: flex;')
+    fieldset3 = d.createElement('fieldset');
+    fieldset4 = d.createElement('fieldset');
+    form.appendChild(fieldset1);
+    form.appendChild(fieldset2);
+    form.appendChild(fieldset3);
+    form.appendChild(fieldset4);
+
+    //fieldset1
+    
+    divDatosPersonales = d.createElement('div');
+    divDatosPersonales.setAttribute('style', 'border: black solid 1px; background-color: #009360; border-radius: 10px;');
+    pDatosPersonales = d.createElement('p');
+    pDatosPersonales.setAttribute('style', 'margin: 0; margin-left: 0.5em; font-size: 1.5em; color: white;');
+    pDatosPersonales.innerHTML = '1- Datos Personales';
+    divDatosPersonales.appendChild(pDatosPersonales);
+
+    fieldset1.appendChild(divDatosPersonales);
+
+    inputNombre = d.createElement('input');
+    inputNombre.setAttribute('class', 'inputForm');
+    inputNombre.setAttribute('name', 'Nombre');
+    inputNombre.setAttribute('type', 'text');
+    inputNombre.setAttribute('required', '');
+    inputNombre.setAttribute('autofocus', '');
+    inputNombre.setAttribute('placeholder', 'Nombre y apellido');
+    fieldset1.appendChild(inputNombre);
+
+    inputTelefono = d.createElement('input');
+    inputTelefono.setAttribute('class', 'inputForm');
+    inputTelefono.setAttribute('name', 'Telefono');
+    inputTelefono.setAttribute('type', 'number');
+    inputTelefono.setAttribute('required', '');
+    inputTelefono.setAttribute('placeholder', 'Telefono (fijo/móvil)');
+    fieldset1.appendChild(inputTelefono);
+
+    inputMail = d.createElement('input');
+    inputMail.setAttribute('class', 'inputForm');
+    inputMail.setAttribute('name', 'Mail');
+    inputMail.setAttribute('type', 'email');
+    inputMail.setAttribute('required', '');
+    inputMail.setAttribute('placeholder', 'Correo electrónico');
+    fieldset1.appendChild(inputMail);
+
+    //fieldset 2
+    divEnvio = d.createElement('div');
+    divEnvio.setAttribute('style', 'border: black solid 1px; background-color: #009360; border-radius: 10px;');
+    pDivEnvio = d.createElement('p');
+    pDivEnvio.setAttribute('style', 'margin: 0; margin-left: 0.5em; font-size: 1.5em; color: white;');
+    pDivEnvio.innerHTML = '2- Envío';
+    divEnvio.appendChild(pDivEnvio);
+    fieldset2.appendChild(divEnvio);
+
+    divRadio = d.createElement('div');
+    divRadio.setAttribute('class', 'row sinFondo');
+    divRadio1 = d.createElement('div');
+    divRadio2 = d.createElement('div');
+    divRadio1.setAttribute('class', 'mx-auto sinFondo');
+    divRadio2.setAttribute('class', 'mx-auto sinFondo');
+
+    labelRadio1 = d.createElement('label');
+    labelRadio1.setAttribute('for', 'depar');
+    labelRadio1.innerHTML = 'Departamento';
+    labelRadio2 = d.createElement('label');
+    labelRadio2.setAttribute('for', 'casa');
+    labelRadio2.innerHTML = 'Casa';
+
+    inputRadio1 = d.createElement('input');
+    inputRadio1.setAttribute('type', 'radio');
+    inputRadio1.setAttribute('name', 'envio');
+    inputRadio1.setAttribute('value', 'Departamento');
+    inputRadio1.setAttribute('id', 'depar');
+    inputRadio1.setAttribute('required', '');
+    inputRadio1.setAttribute('checked', '');
+
+    inputRadio2 = d.createElement('input');
+    inputRadio2.setAttribute('type', 'radio');
+    inputRadio2.setAttribute('name', 'envio');
+    inputRadio2.setAttribute('value', 'Casa');
+    inputRadio2.setAttribute('id', 'casa');
+    inputRadio2.setAttribute('required', '');
+
+    divRadio1.appendChild(inputRadio1);
+    divRadio1.appendChild(labelRadio1);
+    divRadio2.appendChild(inputRadio2);
+    divRadio2.appendChild(labelRadio2);
+    
+    divRadio.appendChild(divRadio1);
+    divRadio.appendChild(divRadio2);
+
+    fieldset2.appendChild(divRadio);
+
+    inputCPostal = d.createElement('input');
+    inputCPostal.setAttribute('class', 'inputForm');
+    inputCPostal.setAttribute('name', 'Codigo Postal');
+    inputCPostal.setAttribute('type', 'text');
+    inputCPostal.setAttribute('required', '');
+    inputCPostal.setAttribute('placeholder', 'Código Postal');
+    fieldset2.appendChild(inputCPostal);
+
+    inputDire = d.createElement('input');
+    inputDire.setAttribute('class', 'inputForm');
+    inputDire.setAttribute('name', 'Direccion');
+    inputDire.setAttribute('type', 'text');
+    inputDire.setAttribute('required', '');
+    inputDire.setAttribute('placeholder', 'Dirección');
+    fieldset2.appendChild(inputDire);
+
+    
+    inputDepar = d.createElement('input');
+    inputDepar.setAttribute('class', 'inputForm');
+    inputDepar.setAttribute('name', 'Departamento');
+    inputDepar.setAttribute('type', 'text');
+    inputDepar.setAttribute('required', '');
+    inputDepar.setAttribute('placeholder', 'Departamento');
+    fieldset2.appendChild(inputDepar);
+
+    divRadio2.onclick = function(){
+        inputDepar.setAttribute('disabled', '');
+    }
+
+    divRadio1.onclick = function(){
+        inputDepar.removeAttribute('disabled');
+    }
+   
+    divEntrega = d.createElement('div');
+    divEntrega.setAttribute('class', 'row sinFondo');
+    fieldset2.appendChild(divEntrega);
+
+    divFecha = d.createElement('div');
+    divFecha.setAttribute('class', 'mx-auto sinFondo');
+    divHora = d.createElement('div');
+    divHora.setAttribute('class', 'mx-auto sinFondo');
+    divEntrega.appendChild(divFecha);
+    divEntrega.appendChild(divHora);
+
+
+    labelFecha = d.createElement('label');
+    labelFecha.innerHTML = 'Fecha de entrega ';
+    labelHora1 = d.createElement('label');
+    labelHora1.innerHTML = 'Rango horario desde ';
+    labelHora2 = d.createElement('label');
+    labelHora2.innerHTML = 'hasta ';
+
+    inputFecha = d.createElement('input');
+    inputFecha.setAttribute('name', 'Fecha de entrega');
+    inputFecha.setAttribute('type', 'date');
+    inputFecha.setAttribute('required', '');
+
+    inputHora1 = d.createElement('input');
+    inputHora1.setAttribute('name', 'Rango de hora 1');
+    inputHora1.setAttribute('type', 'time');
+    inputHora1.setAttribute('required', '');
+
+    inputHora2 = d.createElement('input');
+    inputHora2.setAttribute('name', 'Rango de hora 2');
+    inputHora2.setAttribute('type', 'time');
+    inputHora2.setAttribute('required', '');
+
+    divFecha.appendChild(labelFecha);
+    divFecha.appendChild(inputFecha);
+    divHora.appendChild(labelHora1);
+    divHora.appendChild(inputHora1);
+    divHora.appendChild(labelHora2);
+    divHora.appendChild(inputHora2);
+
+
+    //fieldset3
+    divPago = d.createElement('div');
+    divPago.setAttribute('style', 'border: black solid 1px; background-color: #009360; border-radius: 10px;');
+    pDivPago = d.createElement('p');
+    pDivPago.setAttribute('style', 'margin: 0; margin-left: 0.5em; font-size: 1.5em; color: white;');
+    pDivPago.innerHTML = '3- Modo de pago';
+    divPago.appendChild(pDivPago);
+    fieldset3.appendChild(divPago);
+
+    divRadioPago = d.createElement('div');
+    divRadioPago.setAttribute('class', 'row');
+    divDebito = d.createElement('div');
+    divDebito.setAttribute('class', 'mx-auto sinFondo');
+    divCredito = d.createElement('div');
+    divCredito.setAttribute('class', 'mx-auto sinFondo');
+
+    fieldset3.appendChild(divRadioPago);
+    divRadioPago.appendChild(divCredito);
+    divRadioPago.appendChild(divDebito);
+
+    
+    inputCredito = d.createElement('input');
+    inputCredito.setAttribute('type', 'radio');
+    inputCredito.setAttribute('name', 'pago');
+    inputCredito.setAttribute('value', 'credito');
+    inputCredito.setAttribute('id', 'credito');
+    inputCredito.setAttribute('required', '');
+    inputCredito.setAttribute('checked', '');
+
+    inputDebito = d.createElement('input');
+    inputDebito.setAttribute('type', 'radio');
+    inputDebito.setAttribute('name', 'pago');
+    inputDebito.setAttribute('value', 'Debito');
+    inputDebito.setAttribute('id', 'debito');
+    inputDebito.setAttribute('required', '');
+
+    labelCredito = d.createElement('label');
+    labelCredito.setAttribute('for', 'credito');
+    labelCredito.innerHTML = 'Crédito';
+    labelDebito = d.createElement('label');
+    labelDebito.setAttribute('for', 'debito');
+    labelDebito.innerHTML = 'Débito';
+
+    divCredito.appendChild(inputCredito);
+    divCredito.appendChild(labelCredito);
+    divDebito.appendChild(inputDebito);
+    divDebito.appendChild(labelDebito);
+
+
+
+
+    selectTarjetas = d.createElement('select');
+    selectTarjetas.setAttribute('style', 'font-size: 1.1em; border: 1px solid black; border-radius: 5px; margin-top: 0.4em; margin-bottom: 0.4em; height: 2em;');
+    selectTarjetas.setAttribute('name', 'Tarjetas');
+    selectTarjetas.setAttribute('size', '1');
+    fieldset3.appendChild(selectTarjetas);
+
+    visa = d.createElement('option');
+    visa.setAttribute('value', 'Visa');
+    visa.innerHTML = 'Visa';
+    masterCard = d.createElement('option');
+    masterCard.setAttribute('value', 'Master card');
+    masterCard.innerHTML = 'Master Card';
+    maestro = d.createElement('option');
+    maestro.setAttribute('value', 'Maestro');
+    maestro.innerHTML = 'Maestro';
+    AmericanExpress = d.createElement('option');
+    AmericanExpress.setAttribute('value', 'AmeExpres');
+    AmericanExpress.innerHTML = 'American Express';
+
+    selectTarjetas.appendChild(visa);
+    selectTarjetas.appendChild(masterCard);
+    selectTarjetas.appendChild(maestro);
+    selectTarjetas.appendChild(AmericanExpress);
+
+    inputNumeroDeTarjeta = d.createElement('input');
+    inputNumeroDeTarjeta.setAttribute('class', 'inputForm');
+    inputNumeroDeTarjeta.setAttribute('name', 'Numero de tarjeta');
+    inputNumeroDeTarjeta.setAttribute('type', 'number');
+    inputNumeroDeTarjeta.setAttribute('required', '');
+    inputNumeroDeTarjeta.setAttribute('placeholder', 'Número de tarjeta');
+    fieldset3.appendChild(inputNumeroDeTarjeta);
+
+    inputCodigoDeSeuridad = d.createElement('input');
+    inputCodigoDeSeuridad.setAttribute('class', 'inputForm');
+    inputCodigoDeSeuridad.setAttribute('name', 'Codigo de seguridad');
+    inputCodigoDeSeuridad.setAttribute('type', 'number');
+    inputCodigoDeSeuridad.setAttribute('required', '');
+    inputCodigoDeSeuridad.setAttribute('placeholder', 'Cod. seg.');
+    fieldset3.appendChild(inputCodigoDeSeuridad);
+
+    divVencimiento = d.createElement('div');
+    labelVencimiento = d.createElement('label');
+    labelVencimiento.innerHTML = 'Fecha de vencimiento: ';
+    inputVencimiento = d.createElement('input');
+    inputVencimiento.setAttribute('name', 'Fecha de vencimiento');
+    inputVencimiento.setAttribute('type', 'month');
+    inputVencimiento.setAttribute('required', '');
+
+    fieldset3.appendChild(divVencimiento);
+    divVencimiento.appendChild(labelVencimiento);
+    divVencimiento.appendChild(inputVencimiento);
+
+    finalizarCompra = d.createElement('input');
+    finalizarCompra.setAttribute('type', 'image');
+    finalizarCompra.setAttribute('style', 'display: block; margin: auto; margin-top: 0.5em; width: 60%;');
+    finalizarCompra.src = 'img/form/finalizarCompra.png';
+    finalizarCompra.alt = 'Boton para finalizar la compra';
+
+        
+        //form.addEventListener('submit', Fin);
+
+
+   
+        form.addEventListener('submit', SacarModal);
+        form.addEventListener('submit', CompraFinalizada);//como hago?        
+        form.addEventListener('submit', function(){
+            aCarrito = [];
+          spanNegro.innerHTML = 0;
+          contadorDeProductos = 0;
+          spanBlanco.innerHTML = 0;
+   
+    });
+
+
+    
+
+
+
+ 
+    
+    fieldset4.appendChild(finalizarCompra);
+    
+    botonCancelar = d.createElement('img');
+    botonCancelar.src = 'img/cancelar.png';
+    botonCancelar.alt = 'Botón para cancelar la compra';
+    botonCancelar.setAttribute('style', 'display: block; margin: auto; margin-top: 0.5em; width: auto;');
+    botonCancelar.addEventListener('click', SacarModal);
+    botonCancelar.addEventListener('click', ModalCarrito);
+    fieldset4.appendChild(botonCancelar);
+    
+
+
+}
+
+h1.addEventListener('click', VaciarSection);
+h1.addEventListener('click', BotonHome);
+h1.onclick = Home;
+
+footerNav[0].addEventListener('click', VaciarSection);
+footerNav[0].addEventListener('click', BotonHome);
+footerNav[0].onclick = Home;
+
+footerNav[1].addEventListener('click', VaciarSection);
+footerNav[1].addEventListener('click', function(){
+    imghome.src = 'img/nav/home_1.png';
+    imganime.src = 'img/nav/animeTarget.png';
+    imgcine.src = 'img/nav/cine.png';
+    imgtv.src = 'img/nav/tv_1.png';
+});
+footerNav[1].onclick = Anime;
+
+footerNav[2].addEventListener('click', VaciarSection);
+footerNav[2].addEventListener('click', function(){
+    imghome.src = 'img/nav/home_1.png';
+    imganime.src = 'img/nav/anime_1.png';
+    imgcine.src = 'img/nav/cineTarget.png';
+    imgtv.src = 'img/nav/tv_1.png';
+});
+footerNav[2].onclick = Cine;
+
+footerNav[3].addEventListener('click', VaciarSection);
+footerNav[3].addEventListener('click', function(){
+    imghome.src = 'img/nav/home_1.png';
+    imganime.src = 'img/nav/anime_1.png';
+    imgcine.src = 'img/nav/cine.png';
+    imgtv.src = 'img/nav/tvTarget.png';
+});
+footerNav[3].onclick = Tv;
+
+nav[1].addEventListener('click', VaciarSection);
+nav[1].addEventListener('click', function(){
+    imghome.src = 'img/nav/homeTarget.png';
+    imganime.src = 'img/nav/anime_1.png';
+    imgcine.src = 'img/nav/cine.png';
+    imgtv.src = 'img/nav/tv_1.png';
+});
+nav[1].onclick = Home;
+
+nav[2].addEventListener('click', VaciarSection);
+nav[2].addEventListener('click', function(){
+    imghome.src = 'img/nav/home_1.png';
+    imganime.src = 'img/nav/animeTarget.png';
+    imgcine.src = 'img/nav/cine.png';
+    imgtv.src = 'img/nav/tv_1.png';
+});
+nav[2].onclick = Anime;
+
+nav[3].addEventListener('click', VaciarSection);
+nav[3].addEventListener('click', function(){
+    imghome.src = 'img/nav/home_1.png';
+    imganime.src = 'img/nav/anime_1.png';
+    imgcine.src = 'img/nav/cineTarget.png';
+    imgtv.src = 'img/nav/tv_1.png';
+});
+nav[3].onclick = Cine;
+
+nav[4].addEventListener('click', VaciarSection);
+nav[4].addEventListener('click', function(){
+    imghome.src = 'img/nav/home_1.png';
+    imganime.src = 'img/nav/anime_1.png';
+    imgcine.src = 'img/nav/cine.png';
+    imgtv.src = 'img/nav/tvTarget.png';
+});
+nav[4].onclick = Tv;
+
+carrito.onclick = ModalCarrito;
+nav[6].onclick = ModalCarrito;
+
+
+
+
+function CompraFinalizada(){
+    var modalFinal, fondoFinal, imgFinal, pFelicidades, pFelicidades2, volverHome;
+   
+       
+       
+       fondoFinal = d.createElement('div');
+       fondoFinal.setAttribute('class', 'modal');
+       section.appendChild(fondoFinal);
+   
+       modalFinal = d.createElement('div');
+       modalFinal.setAttribute('style', 'background-color: white; padding: 1em; width: 90%; overflow-y: scroll; margin: 5em 0 5em 0; border-radius: 15px;');
+       fondoFinal.appendChild(modalFinal);
+   
+   
+       backA = d.createElement('a');
+       backA.href = '#';
+       backA.onclick = function(){
+           return false;
+       }
+      
+       backA.setAttribute('style', 'display: block');
+       backA.addEventListener('click', SacarModal);
+           
+       back = d.createElement('img');
+       back.src = 'img/back.png';
+       back.alt = 'Boton para volver a la sección en la que se encontraba';
+       back.setAttribute('style', 'margin: 1em; height: 21px; width: 27px;');
+   
+       backA.appendChild(back);
+       modalFinal.appendChild(backA);
+   
+       imgFinal = d.createElement('img');
+       imgFinal.src = 'img/modalConfirm/ok.png';
+       imgFinal.setAttribute('style', 'margin: auto; display: block;')
+       pFelicidades = d.createElement('p');
+       pFelicidades.innerHTML= '¡Felicidades!';
+       pFelicidades.setAttribute('style', 'margin: auto; text-align: center; margin-top: 1em; margin-bottom: 1em;')
+       pFelicidades2 = d.createElement('p');
+       pFelicidades2.innerHTML= 'Compra realizada con éxito';
+       pFelicidades2.setAttribute('style', 'margin: auto; text-align: center;')
+       volverHome = d.createElement('img');
+       volverHome.src = 'img/modalConfirm/compraFinVolver.png';
+       volverHome.setAttribute('style', 'margin: auto; display: block; margin-top: 1em; margin-bottom: 1em; width: 13em;')
+       volverHome.onclick = SacarModal;
+       modalFinal.appendChild(imgFinal);
+       modalFinal.appendChild(pFelicidades);
+       modalFinal.appendChild(pFelicidades2);
+       modalFinal.appendChild(volverHome);
+   
+   }
+
+   function Info(){
+    CrearArticle();
+    backA = d.createElement('a');
+    backA.href = '#';
+    
+    backA.addEventListener('click', VaciarSection);
+    backA.addEventListener('click', BotonHome);
+    backA.onclick = Home;
+    
+    back = d.createElement('img');
+    back.src = 'img/back.png';
+    back.alt = 'Boton para volver a la home';
+    back.setAttribute('style', 'margin: 1em;');
+    article.appendChild(backA);
+    backA.appendChild(back);
+
+    var perfil = d.createElement('img');
+    perfil.src = 'img/foto.jpg';
+    perfil.setAttribute('style', 'display: block; margin: auto; width: 7em; border: 1px solid black; border-radius: 60px;');
+    article.appendChild(perfil);
+
+    var ulInfo = d.createElement('ul');
+    ulInfo.setAttribute('style', 'display: block; margin:auto;');
+    article.appendChild(ulInfo);
+    var li;
+    for (var i = 0; i < aInfo.length; i++){
+        li = d.createElement('li');
+        li.setAttribute('style', 'list-style: none; text-align: center; margin: 0.5em');
+        li.innerHTML = aInfo[i];
+        ulInfo.appendChild(li);
+    }
+
+
+   }
+
+nav[7].addEventListener('click', VaciarSection);
+nav[7].addEventListener('click', function(){
+    imghome.src = 'img/nav/home_1.png';
+    imganime.src = 'img/nav/anime_1.png';
+    imgcine.src = 'img/nav/cine.png';
+    imgtv.src = 'img/nav/tv_1.png';
+});
+nav[7].onclick = Info;
